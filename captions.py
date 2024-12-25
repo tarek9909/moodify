@@ -71,7 +71,7 @@ def generate_captions_from_url(image_url):
             "hashtags": results_hashtags,
             "captions": response.text.strip() if hasattr(response, 'text') else "No valid caption generated."
         }
-        return json.dumps(output, indent=4)
+        return json.dumps(output)
 
     except Exception as e:
         return json.dumps({"error": str(e)}), 500
