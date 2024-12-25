@@ -3,8 +3,9 @@ import requests
 from flask import Flask, request, jsonify
 import tempfile
 import captions
+from flask_cors import CORS
 app = Flask(__name__)
-
+CORS(app)
 @app.route('/run-file', methods=['POST'])
 def run_file():
     # Get the image URL from the request data
