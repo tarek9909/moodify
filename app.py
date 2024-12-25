@@ -3,15 +3,20 @@ import requests
 from flask import Flask, request, jsonify
 import tempfile
 import captions
-from flask_cors import CORS
+from flask_cors import CORS  # Import CORS
+
 app = Flask(__name__)
+
+# Enable CORS for all origins (you can restrict this to specific origins if needed)
 CORS(app)
+
 @app.route('/run-file', methods=['POST'])
 def run_file():
     # Get the image URL from the request data
     image_url = request.json.get("image_url")
     
     if not image_url:
+        # Return a JSON error response with a 400 status code
         return jsonify({"error": "No image URL provided"}), 400
     
     try:
@@ -22,15 +27,17 @@ def run_file():
             # Call the captions.py script with the downloaded image as an argument
             result = captions.generate_captions_from_url(image_url)
         
-        # If the result is already a string, it's the JSON response
+            # If the result is already a string, it's the JSON response
             return jsonify(result), 200
         else:
             return jsonify({"error": "Failed to download image from the URL"}), 400
     
     except subprocess.CalledProcessError as e:
-        return f"Error: {str(e)}"
+        # Return a JSON error response for subprocess errors
+        return jsonify({"error": f"Subprocess error: {str(e)}"}), 500
     except Exception as e:
-        return f"Error: {str(e)}"
+        # Return a JSON error response for general errors
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 
 def download_image(image_url):
