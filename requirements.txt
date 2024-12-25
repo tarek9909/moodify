@@ -9,3 +9,4 @@ flask
 gunicorn
 scikit-learn
 opencv-python
+flask-cors
