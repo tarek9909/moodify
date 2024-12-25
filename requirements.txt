@@ -6,4 +6,4 @@ numpy
 google.generativeai
 requests
 gunicorn
-sickit-learn
+scikit-learn
