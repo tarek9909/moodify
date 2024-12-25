@@ -7,3 +7,5 @@ numpy
 google.generativeai
 requests
 subprocess
+gunicorn
+sickit-learn
