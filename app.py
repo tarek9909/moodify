@@ -22,7 +22,7 @@ def run_file():
             result = captions.generate_captions_from_url(image_url)
         
         # If the result is already a string, it's the JSON response
-            return result, 200
+            return jsonify(result), 200
         else:
             return jsonify({"error": "Failed to download image from the URL"}), 400
     
