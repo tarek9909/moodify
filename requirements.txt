@@ -8,3 +8,4 @@ requests
 flask
 gunicorn
 scikit-learn
+opencv-python
