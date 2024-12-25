@@ -8,13 +8,13 @@ import json
 register_keras_serializable()(Sequential)
 def predict_emotion(image_path):
     # Load model from JSON file
-    json_file = open('top_models\\fer.json', 'r')
+    json_file = open('top_models/fer.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     model = model_from_json(loaded_model_json)
 
     # Load weights and them to model
-    model.load_weights('top_models\\fer.h5')
+    model.load_weights('top_models/fer.h5')
 
     classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
