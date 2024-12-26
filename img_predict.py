@@ -74,7 +74,6 @@ def predict_emotion(image_path):
 
     # Display the image
     resized_img = cv2.resize(img, (1024, 768))
-    cv2.imshow('Emotion Detection', resized_img)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
