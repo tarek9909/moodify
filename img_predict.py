@@ -81,5 +81,3 @@ def predict_emotion(image_path):
     print(predicted_emotion)
     return predicted_emotion
 
-# Test the function
-predict_emotion("happ.png")
