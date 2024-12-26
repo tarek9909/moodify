@@ -27,7 +27,7 @@ def predict_emotion(image_path):
         image_path = convert_png_to_jpg(image_path)
 
     # Load model from JSON file
-    json_file = open('top_models\\fer.json', 'r')
+    json_file = open('top_models/fer.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     model = model_from_json(loaded_model_json)
